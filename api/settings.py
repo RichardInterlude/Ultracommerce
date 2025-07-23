@@ -37,7 +37,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.corsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -116,5 +116,11 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/image/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'image')
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP server host
+EMAIL_HOST_USER = "odewalerichard@gmail.com "#str(os.getenv('EMAIL_HOST_USER')) # SMTP server username
+EMAIL_HOST_PASSWORD = "mjyotcqcliximwdj" #str(os.getenv('EMAIL_HOST_PASSWORD'))  # SMTP server password
+EMAIL_PORT = 587  # SMTP server port (587 for TLS, 465 for SSL)
+EMAIL_USE_TLS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
