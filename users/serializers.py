@@ -31,7 +31,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
     def validate(self,data):
         if data['password1'] != data['password2']:
             raise serializers.ValidationError('password does not match')
-        return data
+        else:
+            return data
     
     def create(self, validated_data: Dict[str, Any]):
         username = validated_data.pop('username')

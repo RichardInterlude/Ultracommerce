@@ -13,7 +13,7 @@ from django.contrib.auth import login, logout, authenticate
 class RegistrationView(APIView):
     def post(self,request):
         try:
-            serializers = RegistrationSerializer(data = request.data)
+            serializers = RegistrationSerializer(data=request.data)
             if serializers.is_valid():
                 serializers.save()
                 return Response(serializers.data, status=status.HTTP_200_OK)

@@ -1,11 +1,11 @@
 from django.core.mail import send_mail
 from django.conf.global_settings import EMAIL_HOST_USER
-from django.contrib.auth.models import User
+from . models import Profile
 
-def SendMail(email,full_name):
+def SendMail(email):
     subject = "Welcome to Ultra application"
     message = f"""
-                        Welcome {full_name}.
+                        Welcome {Profile.full_name}.
                         This is an onboarding message to show you that you are
                         now a registered user of the app
                 """ 
